@@ -1,0 +1,6 @@
+{
+	"parent": "woodenhoppers:block/wooden_hopper",
+	"textures": {
+		"all": "block/dark_oak_planks"
+	}
+}

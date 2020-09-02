@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "woodenhoppers",
+	"version": "${version}",
+	"name": "Wooden Hoppers",
+	"description": "Adds an early-game hopper alternative to Minecraft.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Wooden-Hoppers#readme",
+		"issues": "https://github.com/haykam821/Wooden-Hoppers/issues"
+	},
+	"entrypoints": {
+		"main": [
+			"io.github.haykam821.woodenhoppers.Main"
+		],
+		"client": [
+			"io.github.haykam821.woodenhoppers.ClientMain"
+		]
+	},
+	"mixins": [
+		"woodenhoppers.mixin.json"
+	],
+	"license": "MIT",
+	"icon": "assets/woodenhoppers/icon.png",
+	"depends": {
+		"fabricloader": ">=0.4.0"
+	}
+}

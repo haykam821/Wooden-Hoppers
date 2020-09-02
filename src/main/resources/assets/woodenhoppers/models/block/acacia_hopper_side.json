@@ -1,0 +1,9 @@
+{
+	"parent": "block/hopper_side",
+	"textures": {
+		"particle": "block/acacia_planks",
+		"top": "block/acacia_planks",
+		"side": "block/acacia_planks",
+		"inside": "block/acacia_planks"
+	}
+}

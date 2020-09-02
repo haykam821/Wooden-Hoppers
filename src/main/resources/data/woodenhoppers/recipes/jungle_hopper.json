@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "woodenhoppers:wooden_hopper",
+	"pattern": [
+		"j j",
+		"jCj",
+		" j "
+	],
+	"key": {
+		"C": {
+			"item": "minecraft:chest"
+		},
+		"j": {
+			"item": "minecraft:jungle_planks"
+		}
+	},
+	"result": {
+		"item": "woodenhoppers:jungle_hopper"
+	}
+}
