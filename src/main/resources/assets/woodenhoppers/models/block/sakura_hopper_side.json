@@ -1,0 +1,9 @@
+{
+	"parent": "block/hopper_side",
+	"textures": {
+		"particle": "sakurarosea:blocks/sakura_planks",
+		"top": "sakurarosea:blocks/sakura_planks",
+		"side": "sakurarosea:blocks/sakura_planks",
+		"inside": "sakurarosea:blocks/sakura_planks"
+	}
+}
