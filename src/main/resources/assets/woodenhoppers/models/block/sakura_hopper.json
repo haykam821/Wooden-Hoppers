@@ -1,0 +1,6 @@
+{
+	"parent": "woodenhoppers:block/wooden_hopper",
+	"textures": {
+		"all": "sakurarosea:blocks/sakura_planks"
+	}
+}
