@@ -23,7 +23,7 @@
 		"woodenhoppers.mixin.json"
 	],
 	"license": "MIT",
-	"icon": "assets/woodenhoppers/icon.png",
+	"icon": "icon.png",
 	"depends": {
 		"fabricloader": ">=0.4.0"
 	}
