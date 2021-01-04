@@ -19,3 +19,6 @@ Wooden Hoppers requires the [Fabric modloader](https://fabricmc.net/use/) and [F
 This mod adds wooden hoppers for each type of wood. Their crafting recipe is similar to normal hoppers, but use planks rather than iron ingots.
 
 These hoppers can only contain one stack of items and have a cooldown of 12 ticks rather than 8 ticks.
+
+## Optional Mods
+* Install [Sakura Rosea](https://www.curseforge.com/minecraft/mc-mods/sakura-rosea/) to get a Sakura-hopper.
