@@ -14,17 +14,11 @@ public class Main implements ModInitializer {
 	public static final String MOD_ID = "woodenhoppers";
 
 	private static final Identifier WOODEN_HOPPER_ID = new Identifier(MOD_ID, "wooden_hopper");
+
 	public static final BlockEntityType<WoodenHopperBlockEntity> WOODEN_HOPPER_BLOCK_ENTITY_TYPE = BlockEntityType.Builder
 		.create(
 			WoodenHopperBlockEntity::new,
-			ModBlocks.OAK_HOPPER.getBlock(),
-			ModBlocks.SPRUCE_HOPPER.getBlock(),
-			ModBlocks.BIRCH_HOPPER.getBlock(),
-			ModBlocks.JUNGLE_HOPPER.getBlock(),
-			ModBlocks.ACACIA_HOPPER.getBlock(),
-			ModBlocks.DARK_OAK_HOPPER.getBlock(),
-			ModBlocks.CRIMSON_HOPPER.getBlock(),
-			ModBlocks.WARPED_HOPPER.getBlock()
+			ModBlocks.getBlocks()
 		)
 		.build(null);
 
