@@ -35,7 +35,7 @@ public enum ModBlocks {
 	}
 
 	private ModBlocks(String path, Material material, Block base) {
-		this(path, new WoodenHopperBlock(Block.Settings.of(material, base.getDefaultMaterialColor()).strength(2).sounds(BlockSoundGroup.WOOD).nonOpaque()));
+		this(path, new WoodenHopperBlock(Block.Settings.of(material, base.getDefaultMapColor()).strength(2).sounds(BlockSoundGroup.WOOD).nonOpaque()));
 	}
 
 	public Block getBlock() {
