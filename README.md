@@ -19,3 +19,5 @@ Wooden Hoppers requires the [Fabric modloader](https://fabricmc.net/use/) and [F
 This mod adds wooden hoppers for each type of wood. Their crafting recipe is similar to normal hoppers, but use planks rather than iron ingots.
 
 These hoppers can only contain one stack of items and have a cooldown of 12 ticks rather than 8 ticks.
+
+Like other wooden blocks, wooden hoppers can be used as fuel in furnaces. Each wooden hopper provides 15 seconds (300 ticks) of fuel time.
