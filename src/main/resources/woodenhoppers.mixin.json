@@ -3,6 +3,7 @@
 	"package": "io.github.haykam821.woodenhoppers.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
+		"AbstractFurnaceBlockEntityMixin",
 		"HopperBlockEntityMixin",
 		"RedstoneWireBlockMixin"
 	],
