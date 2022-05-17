@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 @Mixin(HopperBlockEntity.class)
 public abstract class HopperBlockEntityMixin {
 	@Shadow
-	public abstract void setCooldown(int cooldown);
+	public abstract void setTransferCooldown(int cooldown);
 
 	@Unique
 	private static int getCooldown(int initialValue, HopperBlockEntity blockEntity) {
@@ -42,9 +42,9 @@ public abstract class HopperBlockEntityMixin {
 		return HopperBlockEntityMixin.getCooldown(initialValue, blockEntity);
 	}
 
-	@Redirect(method = "transfer(Lnet/minecraft/inventory/Inventory;Lnet/minecraft/inventory/Inventory;Lnet/minecraft/item/ItemStack;ILnet/minecraft/util/math/Direction;)Lnet/minecraft/item/ItemStack;", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/entity/HopperBlockEntity;setCooldown(I)V"))
+	@Redirect(method = "transfer(Lnet/minecraft/inventory/Inventory;Lnet/minecraft/inventory/Inventory;Lnet/minecraft/item/ItemStack;ILnet/minecraft/util/math/Direction;)Lnet/minecraft/item/ItemStack;", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/entity/HopperBlockEntity;setTransferCooldown(I)V"))
 	private static void setLongerTransferCooldown(HopperBlockEntity blockEntity, int cooldown) {
-		((HopperBlockEntityMixin) (Object) blockEntity).setCooldown(cooldown + (blockEntity instanceof WoodenHopperBlockEntity ? 4 : 0));
+		((HopperBlockEntityMixin) (Object) blockEntity).setTransferCooldown(cooldown + (blockEntity instanceof WoodenHopperBlockEntity ? 4 : 0));
 	}
 
 	@ModifyConstant(method = "isDisabled", constant = @Constant(intValue = 8))
