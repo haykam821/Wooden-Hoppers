@@ -9,5 +9,7 @@ public class WoodenHoppersDatagen implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(FabricDataGenerator dataGenerator) {
 		FabricTagProvider.BlockTagProvider blockTags = dataGenerator.addProvider(WoodenHoppersBlockTagProvider::new);
 		dataGenerator.addProvider(new WoodenHoppersItemTagProvider(dataGenerator, blockTags));
+
+		dataGenerator.addProvider(WoodenHoppersLootTableProvider::new);
 	}
 }
