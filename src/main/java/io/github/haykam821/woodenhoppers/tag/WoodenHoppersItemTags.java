@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public final class WoodenHoppersItemTags {
-	public static final TagKey<Item> WOODEN_HOPPERS = WoodenHoppersItemTags.of("wooden_hopper");
+	public static final TagKey<Item> WOODEN_HOPPERS = WoodenHoppersItemTags.of("wooden_hoppers");
 
 	private WoodenHoppersItemTags() {
 		return;

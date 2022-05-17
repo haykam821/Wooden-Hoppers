@@ -4,7 +4,6 @@ import io.github.haykam821.woodenhoppers.block.ModBlocks;
 import io.github.haykam821.woodenhoppers.tag.WoodenHoppersBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider.FabricTagBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.tag.BlockTags;
 
