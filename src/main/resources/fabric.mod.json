@@ -17,6 +17,9 @@
 		],
 		"client": [
 			"io.github.haykam821.woodenhoppers.ClientMain"
+		],
+		"fabric-datagen": [
+			"io.github.haykam821.woodenhoppers.data.WoodenHoppersDatagen"
 		]
 	},
 	"mixins": [
