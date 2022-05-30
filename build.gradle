@@ -19,6 +19,8 @@ repositories {
 }
 
 loom {
+	accessWidenerPath = file("src/main/resources/woodenhoppers.accesswidener")
+
 	runs {
 		datagen {
 			server()

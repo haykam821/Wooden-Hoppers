@@ -25,6 +25,7 @@
 	"mixins": [
 		"woodenhoppers.mixin.json"
 	],
+	"accessWidener": "woodenhoppers.accesswidener",
 	"license": "MIT",
 	"icon": "assets/woodenhoppers/icon.png",
 	"depends": {
