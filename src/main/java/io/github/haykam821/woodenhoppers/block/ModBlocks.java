@@ -15,11 +15,11 @@ public enum ModBlocks {
 	OAK_HOPPER("oak_hopper", Material.WOOD, Blocks.OAK_PLANKS),
 	SPRUCE_HOPPER("spruce_hopper", Material.WOOD, Blocks.SPRUCE_PLANKS),
 	BIRCH_HOPPER("birch_hopper", Material.WOOD, Blocks.BIRCH_PLANKS),
-	JUNGLE_HOPPER("jungle_hopper", Material.WOOD, Blocks.OAK_PLANKS),
-	ACACIA_HOPPER("acacia_hopper", Material.WOOD, Blocks.OAK_PLANKS),
-	DARK_OAK_HOPPER("dark_oak_hopper", Material.WOOD, Blocks.OAK_PLANKS),
-	CRIMSON_HOPPER("crimson_hopper", Material.NETHER_WOOD, Blocks.OAK_PLANKS),
-	WARPED_HOPPER("warped_hopper", Material.NETHER_WOOD, Blocks.OAK_PLANKS);
+	JUNGLE_HOPPER("jungle_hopper", Material.WOOD, Blocks.JUNGLE_PLANKS),
+	ACACIA_HOPPER("acacia_hopper", Material.WOOD, Blocks.ACACIA_PLANKS),
+	DARK_OAK_HOPPER("dark_oak_hopper", Material.WOOD, Blocks.DARK_OAK_PLANKS),
+	CRIMSON_HOPPER("crimson_hopper", Material.NETHER_WOOD, Blocks.CRIMSON_PLANKS),
+	WARPED_HOPPER("warped_hopper", Material.NETHER_WOOD, Blocks.WARPED_PLANKS);
 
 	private final Block block;
 	private final BlockItem item;
