@@ -1,0 +1,9 @@
+{
+	"parent": "block/hopper_side",
+	"textures": {
+		"particle": "#all",
+		"top": "#all",
+		"side": "#all",
+		"inside": "#all"
+	}
+}

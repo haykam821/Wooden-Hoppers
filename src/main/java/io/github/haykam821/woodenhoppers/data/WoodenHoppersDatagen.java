@@ -11,5 +11,6 @@ public class WoodenHoppersDatagen implements DataGeneratorEntrypoint {
 		dataGenerator.addProvider(new WoodenHoppersItemTagProvider(dataGenerator, blockTags));
 
 		dataGenerator.addProvider(WoodenHoppersLootTableProvider::new);
+		dataGenerator.addProvider(WoodenHoppersModelProvider::new);
 	}
 }

@@ -56,7 +56,7 @@ dependencies {
 	// Fabric API (direct)
 	modImplementation(fabricApi.module("fabric-object-builder-api-v1", project.fabric_version))
 	modImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabric_version))
-	modImplementation(fabricApi.module("fabric-screen-handler-api-v1", project.fabric_version))
+	modImplementation(fabricApi.module("fabric-transitive-access-wideners-v1", project.fabric_version))
 }
 
 processResources {

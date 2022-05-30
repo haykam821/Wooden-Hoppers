@@ -21,11 +21,14 @@ public enum ModBlocks {
 	CRIMSON_HOPPER("crimson_hopper", Material.NETHER_WOOD, Blocks.CRIMSON_PLANKS),
 	WARPED_HOPPER("warped_hopper", Material.NETHER_WOOD, Blocks.WARPED_PLANKS);
 
+	private final Block base;
 	private final Block block;
 	private final BlockItem item;
 
-	private ModBlocks(String path, Block block) {
+	private ModBlocks(String path, Block base, Block block) {
 		Identifier id = new Identifier(Main.MOD_ID, path);
+
+		this.base = base;
 
 		this.block = block;
 		Registry.register(Registry.BLOCK, id, block);
@@ -35,7 +38,11 @@ public enum ModBlocks {
 	}
 
 	private ModBlocks(String path, Material material, Block base) {
-		this(path, new WoodenHopperBlock(Block.Settings.of(material, base.getDefaultMapColor()).strength(2).sounds(BlockSoundGroup.WOOD).nonOpaque()));
+		this(path, base, new WoodenHopperBlock(Block.Settings.of(material, base.getDefaultMapColor()).strength(2).sounds(BlockSoundGroup.WOOD).nonOpaque()));
+	}
+
+	public Block getBase() {
+		return this.base;
 	}
 
 	public Block getBlock() {
