@@ -5,7 +5,6 @@ import io.github.haykam821.woodenhoppers.block.entity.WoodenHopperBlockEntity;
 import io.github.haykam821.woodenhoppers.screen.WoodenHopperScreenHandler;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
@@ -19,11 +18,13 @@ public class Main implements ModInitializer {
 		.create(WoodenHopperBlockEntity::new, ModBlocks.OAK_HOPPER.getBlock(), ModBlocks.SPRUCE_HOPPER.getBlock(), ModBlocks.BIRCH_HOPPER.getBlock(), ModBlocks.JUNGLE_HOPPER.getBlock(), ModBlocks.ACACIA_HOPPER.getBlock(), ModBlocks.DARK_OAK_HOPPER.getBlock(), ModBlocks.CRIMSON_HOPPER.getBlock(), ModBlocks.WARPED_HOPPER.getBlock())
 		.build(null);
 
-	public static final ScreenHandlerType<WoodenHopperScreenHandler> WOODEN_HOPPER_SCREEN_HANDLER_TYPE = ScreenHandlerRegistry.registerSimple(WOODEN_HOPPER_ID, WoodenHopperScreenHandler::new);
+	public static final ScreenHandlerType<WoodenHopperScreenHandler> WOODEN_HOPPER_SCREEN_HANDLER_TYPE = new ScreenHandlerType<>(WoodenHopperScreenHandler::new);
 
 	@Override
 	public void onInitialize() {
 		ModBlocks.initialize();
 		Registry.register(Registry.BLOCK_ENTITY_TYPE, WOODEN_HOPPER_ID, WOODEN_HOPPER_BLOCK_ENTITY_TYPE);
+
+		Registry.register(Registry.SCREEN_HANDLER, WOODEN_HOPPER_ID, WOODEN_HOPPER_SCREEN_HANDLER_TYPE);
 	}
 }
