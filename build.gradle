@@ -1,5 +1,5 @@
 plugins {
-	id "fabric-loom" version "0.12.47"
+	id "fabric-loom" version "0.12.48"
 	id "maven-publish"
 }
 
@@ -18,12 +18,39 @@ repositories {
 	jcenter()
 }
 
+sourceSets {
+	main {
+		resources {
+			srcDirs += [
+				"src/main/generated"
+			]
+		}
+	}
+
+	datagen {
+		compileClasspath += main.compileClasspath
+		runtimeClasspath += main.runtimeClasspath
+		compileClasspath += main.output
+		runtimeClasspath += main.output
+	}
+}
+
 loom {
 	accessWidenerPath = file("src/main/resources/woodenhoppers.accesswidener")
+
+	splitEnvironmentSourceSets()
+
+	mods {
+		woodenhoppers {
+			sourceSet(sourceSets.main)
+			sourceSet(sourceSets.client)
+		}
+	}
 
 	runs {
 		datagen {
 			server()
+			source = sourceSets.datagen
 
 			name = "Data Generation"
 			runDir = "build/datagen"
@@ -34,16 +61,6 @@ loom {
 	}
 }
 assemble.dependsOn(runDatagen)
-
-sourceSets {
-	main {
-		resources {
-			srcDirs += [
-				"src/main/generated"
-			]
-		}
-	}
-}
 
 dependencies {
 	// Main
