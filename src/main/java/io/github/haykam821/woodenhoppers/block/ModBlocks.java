@@ -18,6 +18,7 @@ public enum ModBlocks {
 	JUNGLE_HOPPER("jungle_hopper", Material.WOOD, Blocks.JUNGLE_PLANKS),
 	ACACIA_HOPPER("acacia_hopper", Material.WOOD, Blocks.ACACIA_PLANKS),
 	DARK_OAK_HOPPER("dark_oak_hopper", Material.WOOD, Blocks.DARK_OAK_PLANKS),
+	MANGROVE_HOPPER("mangrove_hopper", Material.WOOD, Blocks.MANGROVE_PLANKS),
 	CRIMSON_HOPPER("crimson_hopper", Material.NETHER_WOOD, Blocks.CRIMSON_PLANKS),
 	WARPED_HOPPER("warped_hopper", Material.NETHER_WOOD, Blocks.WARPED_PLANKS);
 

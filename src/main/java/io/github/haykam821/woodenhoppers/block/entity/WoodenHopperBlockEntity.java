@@ -8,7 +8,6 @@ import net.minecraft.block.entity.HopperBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 
 public class WoodenHopperBlockEntity extends HopperBlockEntity {
@@ -18,7 +17,7 @@ public class WoodenHopperBlockEntity extends HopperBlockEntity {
 
 	@Override
 	public Text getContainerName() {
-		return new TranslatableText("container.wooden_hopper");
+		return Text.translatable("container.wooden_hopper");
 	}
 
 	@Override
