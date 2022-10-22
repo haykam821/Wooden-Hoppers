@@ -1,17 +1,20 @@
 package io.github.haykam821.woodenhoppers.block;
 
 import io.github.haykam821.woodenhoppers.Main;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public enum ModBlocks {
+public enum ModBlocks implements ItemConvertible {
 	OAK_HOPPER("oak_hopper", Material.WOOD, Blocks.OAK_PLANKS),
 	SPRUCE_HOPPER("spruce_hopper", Material.WOOD, Blocks.SPRUCE_PLANKS),
 	BIRCH_HOPPER("birch_hopper", Material.WOOD, Blocks.BIRCH_PLANKS),
@@ -34,7 +37,7 @@ public enum ModBlocks {
 		this.block = block;
 		Registry.register(Registry.BLOCK, id, block);
 
-		this.item = new BlockItem(block, new Item.Settings().group(ItemGroup.REDSTONE));
+		this.item = new BlockItem(block, new Item.Settings());
 		Registry.register(Registry.ITEM, id, this.item);
 	}
 
@@ -50,11 +53,14 @@ public enum ModBlocks {
 		return this.block;
 	}
 
-	public BlockItem getItem() {
+	@Override
+	public Item asItem() {
 		return this.item;
 	}
 
 	public static void initialize() {
-		return;
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> {
+			entries.addAfter(Items.HOPPER, ModBlocks.values());
+		});
 	}
 }
