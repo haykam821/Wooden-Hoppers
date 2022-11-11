@@ -7,11 +7,13 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 public class WoodenHoppersDatagen implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator dataGenerator) {
-		FabricTagProvider.BlockTagProvider blockTags = dataGenerator.addProvider(WoodenHoppersBlockTagProvider::new);
-		dataGenerator.addProvider(new WoodenHoppersItemTagProvider(dataGenerator, blockTags));
+		FabricDataGenerator.Pack pack = dataGenerator.createPack();
 
-		dataGenerator.addProvider(WoodenHoppersLootTableProvider::new);
-		dataGenerator.addProvider(WoodenHoppersModelProvider::new);
-		dataGenerator.addProvider(WoodenHoppersRecipeProvider::new);
+		FabricTagProvider.BlockTagProvider blockTags = pack.addProvider(WoodenHoppersBlockTagProvider::new);
+		pack.addProvider((output, registries) -> new WoodenHoppersItemTagProvider(output, registries, blockTags));
+
+		pack.addProvider(WoodenHoppersLootTableProvider::new);
+		pack.addProvider(WoodenHoppersModelProvider::new);
+		pack.addProvider(WoodenHoppersRecipeProvider::new);
 	}
 }

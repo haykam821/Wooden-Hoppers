@@ -12,6 +12,7 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registries;
 import net.minecraft.util.registry.Registry;
 
 public enum ModBlocks implements ItemConvertible {
@@ -35,10 +36,10 @@ public enum ModBlocks implements ItemConvertible {
 		this.base = base;
 
 		this.block = block;
-		Registry.register(Registry.BLOCK, id, block);
+		Registry.register(Registries.BLOCK, id, block);
 
 		this.item = new BlockItem(block, new Item.Settings());
-		Registry.register(Registry.ITEM, id, this.item);
+		Registry.register(Registries.ITEM, id, this.item);
 	}
 
 	private ModBlocks(String path, Material material, Block base) {

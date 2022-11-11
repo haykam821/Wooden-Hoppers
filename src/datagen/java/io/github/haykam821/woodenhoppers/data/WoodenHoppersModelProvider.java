@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import io.github.haykam821.woodenhoppers.Main;
 import io.github.haykam821.woodenhoppers.block.ModBlocks;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.BlockStateModelGenerator;
@@ -24,8 +24,8 @@ public class WoodenHoppersModelProvider extends FabricModelProvider {
 	public static final Model WOODEN_HOPPER = createModel("wooden_hopper", Optional.empty(), TextureKey.ALL);
 	public static final Model WOODEN_HOPPER_SIDE = createModel("wooden_hopper_side", Optional.of("_side"), TextureKey.ALL);
 
-	public WoodenHoppersModelProvider(FabricDataGenerator dataGenerator) {
-		super(dataGenerator);
+	public WoodenHoppersModelProvider(FabricDataOutput dataOutput) {
+		super(dataOutput);
 	}
 
 	@Override

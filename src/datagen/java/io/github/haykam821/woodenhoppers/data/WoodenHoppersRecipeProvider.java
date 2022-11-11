@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 
 import io.github.haykam821.woodenhoppers.Main;
 import io.github.haykam821.woodenhoppers.block.ModBlocks;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.CriterionMerger;
@@ -24,8 +24,8 @@ public class WoodenHoppersRecipeProvider extends FabricRecipeProvider {
 	private static final Identifier GROUP_ID = new Identifier(Main.MOD_ID, "wooden_hopper");
 	private static final String GROUP = GROUP_ID.toString();
 
-	public WoodenHoppersRecipeProvider(FabricDataGenerator dataGenerator) {
-		super(dataGenerator);
+	public WoodenHoppersRecipeProvider(FabricDataOutput dataOutput) {
+		super(dataOutput);
 	}
 
 	@Override

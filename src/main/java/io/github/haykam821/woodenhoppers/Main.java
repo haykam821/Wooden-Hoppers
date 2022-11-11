@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registries;
 import net.minecraft.util.registry.Registry;
 
 public class Main implements ModInitializer {
@@ -23,8 +24,8 @@ public class Main implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModBlocks.initialize();
-		Registry.register(Registry.BLOCK_ENTITY_TYPE, WOODEN_HOPPER_ID, WOODEN_HOPPER_BLOCK_ENTITY_TYPE);
+		Registry.register(Registries.BLOCK_ENTITY_TYPE, WOODEN_HOPPER_ID, WOODEN_HOPPER_BLOCK_ENTITY_TYPE);
 
-		Registry.register(Registry.SCREEN_HANDLER, WOODEN_HOPPER_ID, WOODEN_HOPPER_SCREEN_HANDLER_TYPE);
+		Registry.register(Registries.SCREEN_HANDLER, WOODEN_HOPPER_ID, WOODEN_HOPPER_SCREEN_HANDLER_TYPE);
 	}
 }
