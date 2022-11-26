@@ -6,9 +6,9 @@ import io.github.haykam821.woodenhoppers.block.ModBlocks;
 import io.github.haykam821.woodenhoppers.tag.WoodenHoppersBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.util.registry.RegistryWrapper;
-import net.minecraft.util.registry.RegistryWrapper.WrapperLookup;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.RegistryWrapper.WrapperLookup;
+import net.minecraft.registry.tag.BlockTags;
 
 public class WoodenHoppersBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 	public WoodenHoppersBlockTagProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registries) {

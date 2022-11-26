@@ -2,9 +2,9 @@ package io.github.haykam821.woodenhoppers.tag;
 
 import io.github.haykam821.woodenhoppers.Main;
 import net.minecraft.item.Item;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.RegistryKeys;
 
 public final class WoodenHoppersItemTags {
 	public static final TagKey<Item> WOODEN_HOPPERS = WoodenHoppersItemTags.of("wooden_hoppers");
