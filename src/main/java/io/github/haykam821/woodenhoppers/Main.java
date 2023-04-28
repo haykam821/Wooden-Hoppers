@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
@@ -19,7 +20,7 @@ public class Main implements ModInitializer {
 		.create(WoodenHopperBlockEntity::new, ModBlocks.OAK_HOPPER.getBlock(), ModBlocks.SPRUCE_HOPPER.getBlock(), ModBlocks.BIRCH_HOPPER.getBlock(), ModBlocks.JUNGLE_HOPPER.getBlock(), ModBlocks.ACACIA_HOPPER.getBlock(), ModBlocks.DARK_OAK_HOPPER.getBlock(), ModBlocks.MANGROVE_HOPPER.getBlock(), ModBlocks.BAMBOO_HOPPER.getBlock(), ModBlocks.CRIMSON_HOPPER.getBlock(), ModBlocks.WARPED_HOPPER.getBlock())
 		.build(null);
 
-	public static final ScreenHandlerType<WoodenHopperScreenHandler> WOODEN_HOPPER_SCREEN_HANDLER_TYPE = new ScreenHandlerType<>(WoodenHopperScreenHandler::new);
+	public static final ScreenHandlerType<WoodenHopperScreenHandler> WOODEN_HOPPER_SCREEN_HANDLER_TYPE = new ScreenHandlerType<>(WoodenHopperScreenHandler::new, FeatureFlags.VANILLA_FEATURES);
 
 	@Override
 	public void onInitialize() {
