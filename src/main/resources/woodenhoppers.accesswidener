@@ -1,10 +1,13 @@
 accessWidener	v2	named
 
+accessible	method	net/minecraft/data/server/recipe/RecipeJsonBuilder	getCraftingCategory	(Lnet/minecraft/recipe/book/RecipeCategory;)Lnet/minecraft/recipe/book/CraftingRecipeCategory;
+
 accessible	method	net/minecraft/data/server/recipe/ShapedRecipeJsonBuilder	validate	(Lnet/minecraft/util/Identifier;)V
 accessible	field	net/minecraft/data/server/recipe/ShapedRecipeJsonBuilder	advancementBuilder	Lnet/minecraft/advancement/Advancement$Builder;
 accessible	field	net/minecraft/data/server/recipe/ShapedRecipeJsonBuilder	group	Ljava/lang/String;
 accessible	class	net/minecraft/data/server/recipe/ShapedRecipeJsonBuilder$ShapedRecipeJsonProvider
-accessible	field	net/minecraft/data/server/recipe/ShapedRecipeJsonBuilder	outputCount	I
+accessible	field	net/minecraft/data/server/recipe/ShapedRecipeJsonBuilder	count	I
+accessible	field	net/minecraft/data/server/recipe/ShapedRecipeJsonBuilder	category	Lnet/minecraft/recipe/book/RecipeCategory;
 accessible	field	net/minecraft/data/server/recipe/ShapedRecipeJsonBuilder	pattern	Ljava/util/List;
 accessible	field	net/minecraft/data/server/recipe/ShapedRecipeJsonBuilder	inputs	Ljava/util/Map;
 

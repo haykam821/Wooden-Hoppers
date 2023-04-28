@@ -1,7 +1,7 @@
 {
 	"required": true,
 	"package": "io.github.haykam821.woodenhoppers.mixin",
-	"compatibilityLevel": "JAVA_8",
+	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"AbstractFurnaceBlockEntityMixin",
 		"HopperBlockEntityMixin",
