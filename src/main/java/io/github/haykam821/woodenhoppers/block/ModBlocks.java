@@ -24,6 +24,7 @@ public enum ModBlocks implements ItemConvertible {
 	ACACIA_HOPPER("acacia_hopper", Blocks.ACACIA_PLANKS),
 	DARK_OAK_HOPPER("dark_oak_hopper", Blocks.DARK_OAK_PLANKS),
 	MANGROVE_HOPPER("mangrove_hopper", Blocks.MANGROVE_PLANKS),
+	CHERRY_HOPPER("cherry_hopper", Blocks.CHERRY_PLANKS, FeatureFlags.UPDATE_1_20),
 	BAMBOO_HOPPER("bamboo_hopper", Blocks.BAMBOO_PLANKS, FeatureFlags.UPDATE_1_20),
 	CRIMSON_HOPPER("crimson_hopper", Blocks.CRIMSON_PLANKS),
 	WARPED_HOPPER("warped_hopper", Blocks.WARPED_PLANKS);
