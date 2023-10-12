@@ -22,7 +22,7 @@ public class WoodenHoppersBlockTagProvider extends FabricTagProvider.BlockTagPro
 			builder.add(modBlock.getBlock());
 		}
 
-		this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+		this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
 			.addTag(WoodenHoppersBlockTags.WOODEN_HOPPERS);
 	}
 }
