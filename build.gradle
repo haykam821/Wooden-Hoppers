@@ -91,4 +91,5 @@ tasks.withType(JavaCompile) {
 
 jar {
 	from "LICENSE"
+	exclude ".cache/**"
 }
