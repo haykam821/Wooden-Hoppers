@@ -72,6 +72,7 @@ dependencies {
 	modImplementation(fabricApi.module("fabric-data-generation-api-v1", project.fabric_version))
 
 	// Fabric API (direct)
+	modImplementation(fabricApi.module("fabric-item-group-api-v1", project.fabric_version))
 	modImplementation(fabricApi.module("fabric-object-builder-api-v1", project.fabric_version))
 	modImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabric_version))
 	modImplementation(fabricApi.module("fabric-transitive-access-wideners-v1", project.fabric_version))

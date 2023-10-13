@@ -1,17 +1,16 @@
 package io.github.haykam821.woodenhoppers.data;
 
-import java.util.function.Consumer;
-
 import io.github.haykam821.woodenhoppers.Main;
 import io.github.haykam821.woodenhoppers.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.advancement.AdvancementEntry;
+import net.minecraft.advancement.AdvancementRequirements.CriterionMerger;
 import net.minecraft.advancement.AdvancementRewards;
-import net.minecraft.advancement.CriterionMerger;
 import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
@@ -29,13 +28,13 @@ public class WoodenHoppersRecipeProvider extends FabricRecipeProvider {
 	}
 
 	@Override
-	public void generate(Consumer<RecipeJsonProvider> exporter) {
+	public void generate(RecipeExporter exporter) {
 		for (ModBlocks modBlock : ModBlocks.values()) {
 			WoodenHoppersRecipeProvider.offerWoodenHopperRecipe(exporter, modBlock.getBlock(), modBlock.getBase());
 		}
 	}
 
-	public static void offerWoodenHopperRecipe(Consumer<RecipeJsonProvider> exporter, Block block, Block base) {
+	public static void offerWoodenHopperRecipe(RecipeExporter exporter, Block block, Block base) {
 		ShapedRecipeJsonBuilder builder = ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, block)
 			.input('#', Ingredient.ofItems(base))
 			.input('C', Items.CHEST)
@@ -48,25 +47,25 @@ public class WoodenHoppersRecipeProvider extends FabricRecipeProvider {
 		WoodenHoppersRecipeProvider.offerCraftingTo(exporter, builder);
 	}
 
-	private static void offerCraftingTo(Consumer<RecipeJsonProvider> exporter, ShapedRecipeJsonBuilder factory) {
+	private static void offerCraftingTo(RecipeExporter exporter, ShapedRecipeJsonBuilder factory) {
 		Identifier recipeId = CraftingRecipeJsonBuilder.getItemId(factory.getOutputItem());
 		WoodenHoppersRecipeProvider.offerShapedTo(exporter, recipeId, factory);
 	}
 
-	private static void offerShapedTo(Consumer<RecipeJsonProvider> exporter, Identifier recipeId, ShapedRecipeJsonBuilder factory) {
+	private static void offerShapedTo(RecipeExporter exporter, Identifier recipeId, ShapedRecipeJsonBuilder factory) {
 		factory.validate(recipeId);
 
 		Identifier advancementId = WoodenHoppersRecipeProvider.getAdvancementId(recipeId);
-		factory.advancementBuilder
-			.parent(new Identifier("recipes/root"))
+		AdvancementEntry advancement = exporter.getAdvancementBuilder()
 			.criterion("has_the_recipe", RecipeUnlockedCriterion.create(recipeId))
 			.rewards(AdvancementRewards.Builder.recipe(recipeId))
-			.criteriaMerger(CriterionMerger.OR);
+			.criteriaMerger(CriterionMerger.OR)
+			.build(advancementId);
 
 		String group = factory.group == null ? "" : factory.group;
 		CraftingRecipeCategory category = ShapedRecipeJsonBuilder.getCraftingCategory(factory.category);
 
-		exporter.accept(new ShapedRecipeJsonBuilder.ShapedRecipeJsonProvider(recipeId, factory.getOutputItem(), factory.count, group, category, factory.pattern, factory.inputs, factory.advancementBuilder, advancementId, factory.showNotification));
+		exporter.accept(new ShapedRecipeJsonBuilder.ShapedRecipeJsonProvider(recipeId, factory.getOutputItem(), factory.count, group, category, factory.pattern, factory.inputs, advancement, factory.showNotification));
 	}
 
 	private static Identifier getAdvancementId(Identifier recipeId) {

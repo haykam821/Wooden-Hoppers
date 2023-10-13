@@ -24,6 +24,6 @@ public class WoodenHopperBlock extends HopperBlock {
 
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-		return world.isClient() ? null : checkType(type, Main.WOODEN_HOPPER_BLOCK_ENTITY_TYPE, HopperBlockEntity::serverTick);
+		return world.isClient() ? null : validateTicker(type, Main.WOODEN_HOPPER_BLOCK_ENTITY_TYPE, HopperBlockEntity::serverTick);
 	}
 }
