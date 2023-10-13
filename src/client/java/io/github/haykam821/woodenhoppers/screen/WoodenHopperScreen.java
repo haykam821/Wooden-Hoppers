@@ -1,11 +1,8 @@
 package io.github.haykam821.woodenhoppers.screen;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-
 import io.github.haykam821.woodenhoppers.Main;
-import net.minecraft.client.gui.DrawableHelper;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -14,26 +11,25 @@ public class WoodenHopperScreen extends HandledScreen<WoodenHopperScreenHandler>
 	private static final Identifier TEXTURE = new Identifier(Main.MOD_ID, "textures/gui/container/wooden_hopper.png");
 
 	public WoodenHopperScreen(WoodenHopperScreenHandler handler, PlayerInventory inventory, Text title) {
-      super(handler, inventory, title);
-	  this.passEvents = false;
+		super(handler, inventory, title);
 
-      this.backgroundHeight = 133;
-      this.playerInventoryTitleY = this.backgroundHeight - 94;
-   }
-
-	public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-		this.renderBackground(matrices);
-		super.render(matrices, mouseX, mouseY, delta);
-
-		this.drawMouseoverTooltip(matrices, mouseX, mouseY);
+		this.backgroundHeight = 133;
+		this.playerInventoryTitleY = this.backgroundHeight - 94;
 	}
 
-	protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-		RenderSystem.setShaderTexture(0, TEXTURE);
+	@Override
+	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+		this.renderBackground(context);
+		super.render(context, mouseX, mouseY, delta);
 
+		this.drawMouseoverTooltip(context, mouseX, mouseY);
+	}
+
+	@Override
+	protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
 		int x = (this.width - this.backgroundWidth) / 2;
 		int y = (this.height - this.backgroundHeight) / 2;
 
-		DrawableHelper.drawTexture(matrices, x, y, 0, 0, this.backgroundWidth, this.backgroundHeight);
+		context.drawTexture(TEXTURE, x, y, 0, 0, this.backgroundWidth, this.backgroundHeight);
 	}
 }

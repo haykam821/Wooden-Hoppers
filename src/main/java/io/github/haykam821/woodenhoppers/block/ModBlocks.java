@@ -2,8 +2,8 @@ package io.github.haykam821.woodenhoppers.block;
 
 import io.github.haykam821.woodenhoppers.Main;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -12,8 +12,6 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.resource.featuretoggle.FeatureFlag;
-import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.util.Identifier;
 
 public enum ModBlocks implements ItemConvertible {
@@ -24,8 +22,8 @@ public enum ModBlocks implements ItemConvertible {
 	ACACIA_HOPPER("acacia_hopper", Blocks.ACACIA_PLANKS),
 	DARK_OAK_HOPPER("dark_oak_hopper", Blocks.DARK_OAK_PLANKS),
 	MANGROVE_HOPPER("mangrove_hopper", Blocks.MANGROVE_PLANKS),
-	CHERRY_HOPPER("cherry_hopper", Blocks.CHERRY_PLANKS, FeatureFlags.UPDATE_1_20),
-	BAMBOO_HOPPER("bamboo_hopper", Blocks.BAMBOO_PLANKS, FeatureFlags.UPDATE_1_20),
+	CHERRY_HOPPER("cherry_hopper", Blocks.CHERRY_PLANKS),
+	BAMBOO_HOPPER("bamboo_hopper", Blocks.BAMBOO_PLANKS),
 	CRIMSON_HOPPER("crimson_hopper", Blocks.CRIMSON_PLANKS),
 	WARPED_HOPPER("warped_hopper", Blocks.WARPED_PLANKS);
 
@@ -45,8 +43,8 @@ public enum ModBlocks implements ItemConvertible {
 		Registry.register(Registries.ITEM, id, this.item);
 	}
 
-	private ModBlocks(String path, Block base, FeatureFlag... features) {
-		this(path, base, new WoodenHopperBlock(createBlockSettings(base, features)));
+	private ModBlocks(String path, Block base) {
+		this(path, base, new WoodenHopperBlock(createBlockSettings(base)));
 	}
 
 	public Block getBase() {
@@ -68,13 +66,9 @@ public enum ModBlocks implements ItemConvertible {
 		});
 	}
 
-	private static Block.Settings createBlockSettings(Block base, FeatureFlag... features) {
-		BlockState baseState = base.getDefaultState();
-
-		return Block.Settings.of(baseState.getMaterial(), base.getDefaultMapColor())
+	private static Block.Settings createBlockSettings(Block base) {
+		return FabricBlockSettings.copyOf(base)
 			.strength(2)
-			.sounds(baseState.getSoundGroup())
-			.nonOpaque()
-			.requires(features);
+			.nonOpaque();
 	}
 }
