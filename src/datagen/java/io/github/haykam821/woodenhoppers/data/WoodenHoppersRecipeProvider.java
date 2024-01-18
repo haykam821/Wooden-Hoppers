@@ -1,5 +1,7 @@
 package io.github.haykam821.woodenhoppers.data;
 
+import java.util.Objects;
+
 import io.github.haykam821.woodenhoppers.Main;
 import io.github.haykam821.woodenhoppers.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -13,8 +15,11 @@ import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RawShapedRecipe;
+import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
@@ -53,7 +58,7 @@ public class WoodenHoppersRecipeProvider extends FabricRecipeProvider {
 	}
 
 	private static void offerShapedTo(RecipeExporter exporter, Identifier recipeId, ShapedRecipeJsonBuilder factory) {
-		factory.validate(recipeId);
+		RawShapedRecipe rawRecipe = factory.validate(recipeId);
 
 		Identifier advancementId = WoodenHoppersRecipeProvider.getAdvancementId(recipeId);
 		AdvancementEntry advancement = exporter.getAdvancementBuilder()
@@ -62,10 +67,11 @@ public class WoodenHoppersRecipeProvider extends FabricRecipeProvider {
 			.criteriaMerger(CriterionMerger.OR)
 			.build(advancementId);
 
-		String group = factory.group == null ? "" : factory.group;
-		CraftingRecipeCategory category = ShapedRecipeJsonBuilder.getCraftingCategory(factory.category);
+		String group = Objects.requireNonNullElse(factory.group, "");
+		CraftingRecipeCategory category = CraftingRecipeJsonBuilder.toCraftingCategory(factory.category);
 
-		exporter.accept(new ShapedRecipeJsonBuilder.ShapedRecipeJsonProvider(recipeId, factory.getOutputItem(), factory.count, group, category, factory.pattern, factory.inputs, advancement, factory.showNotification));
+		ShapedRecipe recipe = new ShapedRecipe(group, category, rawRecipe, new ItemStack(factory.getOutputItem(), factory.count), factory.showNotification);
+		exporter.accept(recipeId, recipe, advancement);
 	}
 
 	private static Identifier getAdvancementId(Identifier recipeId) {
